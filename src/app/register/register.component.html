@@ -1,0 +1,14 @@
+<div class="register-form">
+  <h3>Register</h3>
+  <form #login = "ngForm" (ngSubmit) = "register(login.value)" >
+    Name: <input type = "text" name = "name" placeholder = "Enter your name..." ngModel>
+    <br/>
+    Branch: <input type = "text" name = "branch" placeholder = "Enter your branch..." ngModel>
+    <br/>
+    Email: <input type = "text" name = "email" placeholder = "Enter your email..." ngModel>
+    <br/>
+    Password: <input type="number" name="password" placeholder="Enter your password..." ngModel>
+    <br/>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+</div>
