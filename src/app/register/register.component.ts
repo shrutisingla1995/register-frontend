@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
        'phone' : value.phone
      };
       this.http.post('http://laraveldemo.com/api/register', data).subscribe(data => {
-        window.location.href('/profile');
+      console.log(value);
     });
   }
 }
