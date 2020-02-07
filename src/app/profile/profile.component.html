@@ -1,0 +1,52 @@
+<div class="profile-page container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <div class="profile-card col-12">
+                <img class="default-img" src="../assets/default-profile.jpg" />
+                <div class="user-detail ">
+                    <div  class="name">{{currentProfile.name}}</div>
+                    <div class="branch">{{currentProfile.branch}}</div>
+                    <div class="email">{{currentProfile.email}}</div>
+                </div>
+            </div>
+            <div class="profile-card col-12 upload">
+                <div>Photos</div>
+                <label for="addphotos"> <span class="add-photos"><i class="material-icons">add_to_photos</i></span></label>
+                <input type="file" id="addphotos" #photo accept="image/*" (change)="handleInputFile($event.target.files,photo)">
+                <div *ngFor="let pic of photos;let i = index" class="img-uploaded">
+                    <img [src]='"http://laraveldemo.com/img/" + pic.url' width="70px" height="70px"/>
+                    <i class="material-icons" (click)="deletePhoto(photos,i)">close</i>
+                </div>
+             </div>
+        </div>
+        <div class="col-8">
+            <div class="profile-card profile-form col-12">
+                <form #profileForm = "ngForm" (ngSubmit) = "saveProfile(profileForm.value)" novalidate>
+                    <div class="row">
+                      <div class="col-6">
+                          <span class="label">Name:<span class="required">*</span></span> <input type = "text" name = "name" placeholder = "Enter your name..."  [(ngModel)]='currentProfile.name' required>
+                          <br/>
+                          <span class="label">About:</span> <input type="text" name="about" placeholder="Express yourself..." [(ngModel)]='currentProfile.about' >
+                          <br/>
+                          <span class="label">Branch:</span><input type="text" name="branch" placeholder="Enter your branch..." [(ngModel)]='currentProfile.branch' >
+                          <br/>
+                       </div>
+                      <div class="col-6">
+                           <span class="label">Profile:</span> <input type="text" name="profile" placeholder="Enter your profile.." [(ngModel)]='currentProfile.profile' >
+                          <br/>
+                          <span class="label">Contact:</span> <input type="text" name="contact" placeholder="Enter your phone..." [(ngModel)]='currentProfile.contact' >
+                          <br/>
+                          <span class="label">Email:</span> <input type="text" name="email" readonly placeholder="Enter your email..." [(ngModel)]='currentProfile.email' >
+                          <br/>
+                      </div>
+                      <div class="col-12">
+                        <span class="label">Address:</span> <textarea rows="3" col="10" name="address" placeholder="Enter your address.." [(ngModel)]='currentProfile.address'></textarea>
+                        <button type="submit" [disabled]="!profileForm.dirty || !currentProfile.name">Save</button>
+                      </div>
+                    </div>
+                      
+                </form>
+              </div>
+        </div>
+    </div>
+</div>

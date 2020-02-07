@@ -10,6 +10,8 @@ export class AppComponent {
   title = 'laravelAngular';
   data = [];
   profile = [];
+  currentUser = localStorage.getItem('currentUser');
+
   constructor(private http: HttpClient) {
     this.http.get('http://laraveldemo.com/api/sample-restful-apis').subscribe(data => {
     this.data.push(data);
@@ -20,4 +22,10 @@ export class AppComponent {
     console.log(this.data);
     }, error => console.error(error));
   }
+  logout(){
+    this.http.get('http://laraveldemo.com/api/logout').subscribe(data => {
+      window.location.href = '/login';
+      localStorage.setItem('currentUser', '');
+      }, error => console.error(error));
+  };
 }

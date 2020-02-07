@@ -12,7 +12,10 @@
 <div [innerHTML]="profile[0]"></div> -->
 <mat-toolbar color="primary">
   <div>
-    <button mat-button routerLink="/register">Register</button>&nbsp;
+    <button mat-button *ngIf="!currentUser" routerLink="/register">Register</button>&nbsp;
+    <button mat-button *ngIf="!currentUser" routerLink="/login">Login</button>&nbsp;
+    <button class="right-btn" mat-button *ngIf="currentUser" (click)="logout()">Logout</button>&nbsp;
+    <button class="right-btn-2" mat-button *ngIf="currentUser" routerLink="/profile">Profile</button>&nbsp;
   </div>
 </mat-toolbar>
 <router-outlet></router-outlet>

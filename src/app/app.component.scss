@@ -13,3 +13,12 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  .right-btn{
+    position: absolute;
+    right:0;  
+    &-2{
+      right: 6%;
+      position: absolute;
+    }
+  }

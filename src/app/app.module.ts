@@ -13,10 +13,14 @@ MatDialogModule,
 MatFormFieldModule,
 MatProgressSpinnerModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+<div class="login-form">
+  <h3>Login</h3>
+  <form #Ulogin = "ngForm" (ngSubmit) = "login(Ulogin.value)" novalidate>
+    Email <span class="required">*</span> : <input type = "text" name = "email" placeholder = "Enter your email..."  [(ngModel)]='formemail' required>
+    <br/>
+    Password <span class="required">*</span> : <input type="password" name="password" placeholder="Enter your password..." [(ngModel)]='formpswd' required>
+    <br/>
+    <button type="submit" class="btn" [disabled]="!formemail && !formpswd">Sign In</button>
+  </form>
+</div>
